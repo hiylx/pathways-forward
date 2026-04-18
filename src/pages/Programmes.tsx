@@ -4,7 +4,7 @@ export default function Programmes() {
   return (
     <div className="container-narrow py-16">
       <span className="heraldic-rule mb-4" aria-hidden="true" />
-      <h1 className="font-display text-4xl md:text-5xl mb-4">Programmes</h1>
+      <h1 className="font-display text-4xl md:text-5xl mb-4">Services</h1>
       <p className="text-xl text-muted-foreground mb-12 max-w-3xl">
         Six delivery strands that work together to remove barriers and open pathways into
         skilled employment, training and self-employment.

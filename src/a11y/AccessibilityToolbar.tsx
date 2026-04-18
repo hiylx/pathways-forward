@@ -1,20 +1,38 @@
+import { useEffect, useRef, useState } from "react";
 import { useA11y } from "./AccessibilityProvider";
-import { Type, Contrast, Pause, BookOpen, Palette, RotateCcw } from "lucide-react";
+import { Accessibility, Type, Contrast, Pause, BookOpen, Palette, RotateCcw, X } from "lucide-react";
 
-function PillGroup({
-  label,
-  options,
-  value,
-  onChange,
-}: {
-  label: string;
-  options: { value: string; label: string; title?: string }[];
-  value: string;
-  onChange: (v: string) => void;
-}) {
+function Row({ icon: Icon, label, children }: { icon: React.ElementType; label: string; children: React.ReactNode }) {
   return (
-    <div className="flex items-center gap-1.5" role="group" aria-label={label}>
-      <span className="sr-only">{label}</span>
+    <div className="flex items-center justify-between gap-4 py-3 border-b border-border last:border-b-0">
+      <div className="flex items-center gap-2.5 min-w-0">
+        <Icon className="h-4 w-4 text-accent flex-shrink-0" aria-hidden="true" />
+        <span className="text-sm font-semibold">{label}</span>
+      </div>
+      <div className="flex-shrink-0">{children}</div>
+    </div>
+  );
+}
+
+function Toggle({ on, onClick, labelOn = "On", labelOff = "Off" }: { on: boolean; onClick: () => void; labelOn?: string; labelOff?: string }) {
+  return (
+    <button
+      type="button"
+      role="switch"
+      aria-checked={on}
+      onClick={onClick}
+      className={`px-3 py-1 text-xs font-semibold rounded-sm border-2 ${
+        on ? "bg-accent text-accent-foreground border-accent" : "bg-background text-foreground border-border hover:border-accent"
+      }`}
+    >
+      {on ? labelOn : labelOff}
+    </button>
+  );
+}
+
+function PillGroup({ value, onChange, options }: { value: string; onChange: (v: string) => void; options: { value: string; label: string }[] }) {
+  return (
+    <div className="flex items-center gap-1" role="group">
       {options.map((opt) => {
         const active = opt.value === value;
         return (
@@ -23,11 +41,8 @@ function PillGroup({
             type="button"
             onClick={() => onChange(opt.value)}
             aria-pressed={active}
-            title={opt.title ?? opt.label}
-            className={`px-2.5 py-1 text-xs font-semibold rounded-sm border ${
-              active
-                ? "bg-accent text-accent-foreground border-accent"
-                : "bg-background text-foreground border-border hover:border-accent"
+            className={`px-2.5 py-1 text-xs font-semibold rounded-sm border-2 ${
+              active ? "bg-accent text-accent-foreground border-accent" : "bg-background text-foreground border-border hover:border-accent"
             }`}
           >
             {opt.label}
@@ -40,130 +55,125 @@ function PillGroup({
 
 export function AccessibilityToolbar() {
   const a = useA11y();
+  const [open, setOpen] = useState(false);
+  const panelRef = useRef<HTMLDivElement | null>(null);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+
+  // Close on outside click + Escape
+  useEffect(() => {
+    if (!open) return;
+    const onClick = (e: MouseEvent) => {
+      if (
+        panelRef.current &&
+        !panelRef.current.contains(e.target as Node) &&
+        triggerRef.current &&
+        !triggerRef.current.contains(e.target as Node)
+      ) {
+        setOpen(false);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        triggerRef.current?.focus();
+      }
+    };
+    document.addEventListener("mousedown", onClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
 
   return (
-    <div className="w-full bg-primary text-primary-foreground border-b-4 border-accent">
-      <div className="container-wide py-2">
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
-          <span className="font-display tracking-wide text-xs uppercase opacity-80 mr-2">
-            Accessibility
-          </span>
+    <div className="fixed top-3 right-3 z-50">
+      <button
+        ref={triggerRef}
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        aria-controls="a11y-panel"
+        aria-label="Accessibility options"
+        className="flex items-center gap-2 bg-primary text-primary-foreground border-2 border-accent px-3 py-2 rounded-sm shadow-md hover:bg-primary-glow"
+      >
+        <Accessibility className="h-5 w-5" aria-hidden="true" />
+        <span className="hidden sm:inline text-xs font-semibold uppercase tracking-wider">
+          Accessibility
+        </span>
+      </button>
 
-          {/* 1. Dyslexia font */}
-          <label className="flex items-center gap-2">
-            <Type className="h-4 w-4" aria-hidden="true" />
-            <span className="hidden sm:inline">Dyslexia font</span>
+      {open && (
+        <div
+          ref={panelRef}
+          id="a11y-panel"
+          role="dialog"
+          aria-label="Accessibility options"
+          className="absolute right-0 mt-2 w-80 max-w-[calc(100vw-1.5rem)] bg-card text-card-foreground border-2 border-primary shadow-xl"
+        >
+          <div className="flex items-center justify-between px-4 py-3 bg-primary text-primary-foreground">
+            <h2 className="font-display text-base text-primary-foreground">Accessibility</h2>
             <button
               type="button"
-              role="switch"
-              aria-checked={a.font === "dyslexia"}
-              onClick={() => a.set("font", a.font === "dyslexia" ? "default" : "dyslexia")}
-              className={`px-2 py-0.5 text-xs font-semibold rounded-sm border ${
-                a.font === "dyslexia"
-                  ? "bg-accent text-accent-foreground border-accent"
-                  : "bg-transparent border-primary-foreground/40"
-              }`}
+              onClick={() => setOpen(false)}
+              aria-label="Close accessibility panel"
+              className="p-1 hover:text-accent"
             >
-              {a.font === "dyslexia" ? "On" : "Off"}
+              <X className="h-4 w-4" />
             </button>
-          </label>
-
-          {/* 2. High contrast */}
-          <label className="flex items-center gap-2">
-            <Contrast className="h-4 w-4" aria-hidden="true" />
-            <span className="hidden sm:inline">High contrast</span>
-            <button
-              type="button"
-              role="switch"
-              aria-checked={a.contrast === "high"}
-              onClick={() => a.set("contrast", a.contrast === "high" ? "default" : "high")}
-              className={`px-2 py-0.5 text-xs font-semibold rounded-sm border ${
-                a.contrast === "high"
-                  ? "bg-accent text-accent-foreground border-accent"
-                  : "bg-transparent border-primary-foreground/40"
-              }`}
-            >
-              {a.contrast === "high" ? "On" : "Off"}
-            </button>
-          </label>
-
-          {/* 3. Reduce motion */}
-          <label className="flex items-center gap-2">
-            <Pause className="h-4 w-4" aria-hidden="true" />
-            <span className="hidden sm:inline">Reduce motion</span>
-            <button
-              type="button"
-              role="switch"
-              aria-checked={a.motion === "reduced"}
-              onClick={() => a.set("motion", a.motion === "reduced" ? "default" : "reduced")}
-              className={`px-2 py-0.5 text-xs font-semibold rounded-sm border ${
-                a.motion === "reduced"
-                  ? "bg-accent text-accent-foreground border-accent"
-                  : "bg-transparent border-primary-foreground/40"
-              }`}
-            >
-              {a.motion === "reduced" ? "On" : "Off"}
-            </button>
-          </label>
-
-          {/* 4. Reading guide */}
-          <label className="flex items-center gap-2">
-            <BookOpen className="h-4 w-4" aria-hidden="true" />
-            <span className="hidden sm:inline">Reading guide</span>
-            <button
-              type="button"
-              role="switch"
-              aria-checked={a.readingGuide}
-              onClick={() => a.set("readingGuide", !a.readingGuide)}
-              className={`px-2 py-0.5 text-xs font-semibold rounded-sm border ${
-                a.readingGuide
-                  ? "bg-accent text-accent-foreground border-accent"
-                  : "bg-transparent border-primary-foreground/40"
-              }`}
-            >
-              {a.readingGuide ? "On" : "Off"}
-            </button>
-          </label>
-
-          {/* 5. Text size */}
-          <PillGroup
-            label="Text size"
-            value={String(a.size)}
-            onChange={(v) => a.set("size", Number(v) as 0 | 1 | 2 | 3)}
-            options={[
-              { value: "0", label: "A" },
-              { value: "1", label: "A+" },
-              { value: "2", label: "A++" },
-              { value: "3", label: "A+++" },
-            ]}
-          />
-
-          {/* 6. Colour overlay */}
-          <div className="flex items-center gap-2">
-            <Palette className="h-4 w-4" aria-hidden="true" />
-            <PillGroup
-              label="Colour overlay"
-              value={a.overlay}
-              onChange={(v) => a.set("overlay", v as "none" | "yellow" | "blue" | "pink")}
-              options={[
-                { value: "none", label: "None" },
-                { value: "yellow", label: "Yellow" },
-                { value: "blue", label: "Blue" },
-                { value: "pink", label: "Pink" },
-              ]}
-            />
           </div>
 
-          <button
-            type="button"
-            onClick={a.reset}
-            className="ml-auto inline-flex items-center gap-1.5 text-xs font-semibold underline-offset-2 hover:underline"
-          >
-            <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
-            Reset
-          </button>
+          <div className="px-4">
+            <Row icon={Type} label="Dyslexia font">
+              <Toggle on={a.font === "dyslexia"} onClick={() => a.set("font", a.font === "dyslexia" ? "default" : "dyslexia")} />
+            </Row>
+            <Row icon={Contrast} label="High contrast">
+              <Toggle on={a.contrast === "high"} onClick={() => a.set("contrast", a.contrast === "high" ? "default" : "high")} />
+            </Row>
+            <Row icon={Pause} label="Reduce motion">
+              <Toggle on={a.motion === "reduced"} onClick={() => a.set("motion", a.motion === "reduced" ? "default" : "reduced")} />
+            </Row>
+            <Row icon={BookOpen} label="Reading guide">
+              <Toggle on={a.readingGuide} onClick={() => a.set("readingGuide", !a.readingGuide)} />
+            </Row>
+            <Row icon={Type} label="Text size">
+              <PillGroup
+                value={String(a.size)}
+                onChange={(v) => a.set("size", Number(v) as 0 | 1 | 2 | 3)}
+                options={[
+                  { value: "0", label: "A" },
+                  { value: "1", label: "A+" },
+                  { value: "2", label: "A++" },
+                  { value: "3", label: "A+++" },
+                ]}
+              />
+            </Row>
+            <Row icon={Palette} label="Colour overlay">
+              <PillGroup
+                value={a.overlay}
+                onChange={(v) => a.set("overlay", v as "none" | "yellow" | "blue" | "pink")}
+                options={[
+                  { value: "none", label: "Off" },
+                  { value: "yellow", label: "Yel" },
+                  { value: "blue", label: "Blu" },
+                  { value: "pink", label: "Pnk" },
+                ]}
+              />
+            </Row>
+          </div>
+
+          <div className="px-4 py-3 border-t border-border bg-secondary">
+            <button
+              type="button"
+              onClick={a.reset}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-accent"
+            >
+              <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
+              Reset all to default
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

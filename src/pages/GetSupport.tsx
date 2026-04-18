@@ -19,7 +19,7 @@ export default function GetSupport() {
         personalised action plan — with practical referrals where they help.
       </p>
 
-      <section className="bg-secondary p-6 md:p-8 mb-12 border-l-4 border-accent">
+      <section className="bg-secondary p-6 md:p-8 mb-12 border-l-4 border-accent rounded-md">
         <h2 className="font-display text-2xl mb-3">How the assessment works</h2>
         <ol className="list-decimal pl-6 space-y-2">
           <li>Answer questions across five life areas, based on Maslow's hierarchy of needs.</li>

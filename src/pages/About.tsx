@@ -44,7 +44,7 @@ export default function About() {
         </p>
       </section>
 
-      <section className="mb-12 bg-secondary p-6 md:p-8 border-l-4 border-accent">
+      <section className="mb-12 bg-secondary p-6 md:p-8 border-l-4 border-accent rounded-md">
         <h2 className="font-display text-2xl mb-3">UN Sustainable Development Goals</h2>
         <p className="mb-4">Our activities are consistent with:</p>
         <ul className="space-y-3">

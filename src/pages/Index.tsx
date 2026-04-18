@@ -34,7 +34,7 @@ export default function Index() {
             </div>
           </div>
           <div className="md:col-span-2 flex justify-center">
-            <div className="bg-primary-glow/40 border border-primary-foreground/15 p-8 max-w-sm">
+            <div className="bg-primary-glow/40 border border-primary-foreground/15 p-8 max-w-sm rounded-md">
               <h2 className="font-display text-xl text-primary-foreground mb-3">Our mission</h2>
               <p className="opacity-90">
                 To advance education and relieve poverty by delivering accessible STEAM
@@ -63,7 +63,7 @@ export default function Index() {
             { icon: Heart, title: "People in financial hardship", body: "Or facing sudden life changes." },
             { icon: Users, title: "International students & skilled migrants", body: "Navigating the UK labour market." },
           ].map((b) => (
-            <li key={b.title} className="bg-card border border-border p-5">
+            <li key={b.title} className="bg-card border border-border p-5 rounded-md">
               <b.icon className="h-6 w-6 text-accent mb-3" aria-hidden="true" />
               <h3 className="font-display text-lg mb-1">{b.title}</h3>
               <p className="text-sm text-muted-foreground">{b.body}</p>

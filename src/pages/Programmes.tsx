@@ -24,11 +24,11 @@ export default function Programmes() {
             <p className="text-lg mb-6">{p.description}</p>
 
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="bg-secondary p-5 border-l-4 border-primary">
+              <div className="bg-secondary p-5 border-l-4 border-primary rounded-md">
                 <h3 className="font-display text-base mb-2">Who it's for</h3>
                 <p className="text-sm">{p.eligibility}</p>
               </div>
-              <div className="bg-secondary p-5 border-l-4 border-primary">
+              <div className="bg-secondary p-5 border-l-4 border-primary rounded-md">
                 <h3 className="font-display text-base mb-2">How to access</h3>
                 <p className="text-sm">{p.access}</p>
               </div>

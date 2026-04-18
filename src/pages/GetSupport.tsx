@@ -36,8 +36,8 @@ export default function GetSupport() {
       <h2 className="font-display text-2xl mb-6">The five areas we explore</h2>
       <ol className="space-y-3 mb-12">
         {tiers.map((t, i) => (
-          <li key={t.name} className="flex gap-4 bg-card border border-border p-5">
-            <div className="flex-shrink-0 w-10 h-10 bg-primary text-primary-foreground rounded-sm flex items-center justify-center font-display">
+          <li key={t.name} className="flex gap-4 bg-card border border-border p-5 rounded-md">
+            <div className="flex-shrink-0 w-10 h-10 bg-primary text-primary-foreground rounded-md flex items-center justify-center font-display">
               {i + 1}
             </div>
             <div className="flex-1">

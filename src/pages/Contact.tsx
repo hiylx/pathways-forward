@@ -71,7 +71,7 @@ export default function Contact() {
             autoComplete="name"
             aria-invalid={!!errors.name}
             aria-describedby={errors.name ? "name-error" : undefined}
-            className="px-4 py-3 border-2 border-border bg-background focus:border-accent rounded-sm"
+            className="px-4 py-3 border-2 border-border bg-background focus:border-accent rounded-md"
           />
           {errors.name && (
             <p id="name-error" className="text-sm text-destructive">{errors.name}</p>

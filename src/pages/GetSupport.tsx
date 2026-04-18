@@ -19,7 +19,7 @@ export default function GetSupport() {
         personalised action plan — with practical referrals where they help.
       </p>
 
-      <section className="bg-secondary p-6 md:p-8 mb-12 border-l-4 border-accent">
+      <section className="bg-secondary p-6 md:p-8 mb-12 border-l-4 border-accent rounded-md">
         <h2 className="font-display text-2xl mb-3">How the assessment works</h2>
         <ol className="list-decimal pl-6 space-y-2">
           <li>Answer questions across five life areas, based on Maslow's hierarchy of needs.</li>
@@ -36,8 +36,8 @@ export default function GetSupport() {
       <h2 className="font-display text-2xl mb-6">The five areas we explore</h2>
       <ol className="space-y-3 mb-12">
         {tiers.map((t, i) => (
-          <li key={t.name} className="flex gap-4 bg-card border border-border p-5">
-            <div className="flex-shrink-0 w-10 h-10 bg-primary text-primary-foreground rounded-sm flex items-center justify-center font-display">
+          <li key={t.name} className="flex gap-4 bg-card border border-border p-5 rounded-md">
+            <div className="flex-shrink-0 w-10 h-10 bg-primary text-primary-foreground rounded-md flex items-center justify-center font-display">
               {i + 1}
             </div>
             <div className="flex-1">
@@ -52,7 +52,7 @@ export default function GetSupport() {
       </ol>
 
       {/* Skeleton CTA — assessment flow to be implemented in next phase */}
-      <div className="bg-primary text-primary-foreground p-8 md:p-10 text-center">
+      <div className="bg-primary text-primary-foreground p-8 md:p-10 text-center rounded-md">
         <h2 className="font-display text-2xl text-primary-foreground mb-3">
           Assessment coming soon
         </h2>
@@ -62,7 +62,7 @@ export default function GetSupport() {
         </p>
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 font-semibold uppercase tracking-wider text-sm rounded-sm hover:bg-accent/90"
+          className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 font-semibold uppercase tracking-wider text-sm rounded-md hover:bg-accent/90"
         >
           Contact us instead <ArrowRight className="h-4 w-4" />
         </Link>

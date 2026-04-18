@@ -43,7 +43,7 @@
     --input: 217 25% 85%;
     --ring: 217 65% 16%;
 
-    --radius: 0.375rem;
+    --radius: 0.75rem;
 
     /* Typography scale (controlled by accessibility toolbar) */
     --a11y-font-scale: 1;

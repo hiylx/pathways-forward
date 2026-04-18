@@ -21,7 +21,7 @@ function Toggle({ on, onClick, labelOn = "On", labelOff = "Off" }: { on: boolean
       role="switch"
       aria-checked={on}
       onClick={onClick}
-      className={`px-3 py-1 text-xs font-semibold rounded-sm border-2 ${
+      className={`px-3 py-1 text-xs font-semibold rounded-md border-2 ${
         on ? "bg-accent text-accent-foreground border-accent" : "bg-background text-foreground border-border hover:border-accent"
       }`}
     >
@@ -41,7 +41,7 @@ function PillGroup({ value, onChange, options }: { value: string; onChange: (v: 
             type="button"
             onClick={() => onChange(opt.value)}
             aria-pressed={active}
-            className={`px-2.5 py-1 text-xs font-semibold rounded-sm border-2 ${
+            className={`px-2.5 py-1 text-xs font-semibold rounded-md border-2 ${
               active ? "bg-accent text-accent-foreground border-accent" : "bg-background text-foreground border-border hover:border-accent"
             }`}
           >
@@ -95,7 +95,7 @@ export function AccessibilityToolbar() {
         aria-expanded={open}
         aria-controls="a11y-panel"
         aria-label="Accessibility options"
-        className="flex items-center gap-2 bg-primary text-primary-foreground border-2 border-accent px-3 py-2 rounded-sm shadow-md hover:bg-primary-glow"
+        className="flex items-center gap-2 bg-primary text-primary-foreground border-2 border-accent px-3 py-2 rounded-full shadow-md hover:bg-primary-glow"
       >
         <Accessibility className="h-5 w-5" aria-hidden="true" />
         <span className="hidden sm:inline text-xs font-semibold uppercase tracking-wider">
@@ -109,7 +109,7 @@ export function AccessibilityToolbar() {
           id="a11y-panel"
           role="dialog"
           aria-label="Accessibility options"
-          className="absolute right-0 mt-2 w-80 max-w-[calc(100vw-1.5rem)] bg-card text-card-foreground border-2 border-primary shadow-xl"
+          className="absolute right-0 mt-2 w-80 max-w-[calc(100vw-1.5rem)] bg-card text-card-foreground border-2 border-primary shadow-xl rounded-md overflow-hidden"
         >
           <div className="flex items-center justify-between px-4 py-3 bg-primary text-primary-foreground">
             <h2 className="font-display text-base text-primary-foreground">Accessibility</h2>

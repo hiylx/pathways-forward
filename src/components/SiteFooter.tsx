@@ -18,9 +18,9 @@ export function SiteFooter() {
           <h3 className="font-display text-base mb-3 text-primary-foreground">Explore</h3>
           <ul className="space-y-2 text-sm">
             <li><Link to="/about" className="hover:underline">About</Link></li>
-            <li><Link to="/programmes" className="hover:underline">Programmes</Link></li>
+            <li><Link to="/programmes" className="hover:underline">Services</Link></li>
             <li><Link to="/get-support" className="hover:underline">Get Support</Link></li>
-            <li><Link to="/contact" className="hover:underline">Contact & Partners</Link></li>
+            <li><Link to="/contact" className="hover:underline">Contact</Link></li>
           </ul>
         </div>
         <div>

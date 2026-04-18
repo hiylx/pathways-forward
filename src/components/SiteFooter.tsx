@@ -37,7 +37,14 @@ export function SiteFooter() {
                 hello@reviveuk.org.uk
               </a>
             </li>
-            <li>Lancaster, United Kingdom</li>
+            <li>
+              <address className="not-italic">
+                C/O LDCVS, The Cornerstone<br />
+                Sulyard Street<br />
+                Lancaster, Lancashire LA1 1PX<br />
+                United Kingdom
+              </address>
+            </li>
           </ul>
           <h3 className="font-display text-base mt-5 mb-2 text-primary-foreground">Aligned with</h3>
           <ul className="space-y-1 text-xs opacity-80">

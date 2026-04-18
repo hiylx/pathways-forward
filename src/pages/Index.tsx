@@ -123,7 +123,7 @@ export default function Index() {
           </p>
           <Link
             to="/get-support"
-            className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 font-semibold uppercase tracking-wider text-sm rounded-sm hover:bg-accent/90"
+            className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 font-semibold uppercase tracking-wider text-sm rounded-md hover:bg-accent/90"
           >
             Start your assessment <ArrowRight className="h-4 w-4" />
           </Link>

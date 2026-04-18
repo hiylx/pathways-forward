@@ -109,7 +109,7 @@ export function AccessibilityToolbar() {
           id="a11y-panel"
           role="dialog"
           aria-label="Accessibility options"
-          className="absolute right-0 mt-2 w-80 max-w-[calc(100vw-1.5rem)] bg-card text-card-foreground border-2 border-primary shadow-xl rounded-md overflow-hidden"
+          className="absolute bottom-full mb-2 right-0 w-80 max-w-[calc(100vw-1.5rem)] bg-card text-card-foreground border-2 border-primary shadow-xl rounded-md overflow-hidden"
         >
           <div className="flex items-center justify-between px-4 py-3 bg-primary text-primary-foreground">
             <h2 className="font-display text-base text-primary-foreground">Accessibility</h2>

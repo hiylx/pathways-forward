@@ -52,7 +52,7 @@ export default function GetSupport() {
       </ol>
 
       {/* Skeleton CTA — assessment flow to be implemented in next phase */}
-      <div className="bg-primary text-primary-foreground p-8 md:p-10 text-center">
+      <div className="bg-primary text-primary-foreground p-8 md:p-10 text-center rounded-md">
         <h2 className="font-display text-2xl text-primary-foreground mb-3">
           Assessment coming soon
         </h2>
@@ -62,7 +62,7 @@ export default function GetSupport() {
         </p>
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 font-semibold uppercase tracking-wider text-sm rounded-sm hover:bg-accent/90"
+          className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 font-semibold uppercase tracking-wider text-sm rounded-md hover:bg-accent/90"
         >
           Contact us instead <ArrowRight className="h-4 w-4" />
         </Link>

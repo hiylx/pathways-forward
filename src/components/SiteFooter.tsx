@@ -10,8 +10,14 @@ export function SiteFooter() {
             Inclusive STEAM education and employability support for disadvantaged and
             underserved people in Lancaster and surrounding areas.
           </p>
-          <p className="text-xs opacity-60 mt-4">
-            A Community Interest Company. Surpluses reinvested for public benefit.
+          <p className="text-xs opacity-75 mt-4">
+            A non-profit Community Interest Company registered in England and Wales.
+          </p>
+          <p className="text-xs opacity-75 mt-1">
+            Company number: <span className="font-semibold">17146868</span>
+          </p>
+          <p className="text-xs opacity-75 mt-1">
+            Surpluses reinvested for public benefit.
           </p>
         </div>
         <div>
@@ -24,8 +30,17 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <h3 className="font-display text-base mb-3 text-primary-foreground">Aligned with</h3>
+          <h3 className="font-display text-base mb-3 text-primary-foreground">Get in touch</h3>
           <ul className="space-y-2 text-sm opacity-90">
+            <li>
+              <a href="mailto:hello@reviveuk.org.uk" className="hover:underline">
+                hello@reviveuk.org.uk
+              </a>
+            </li>
+            <li>Lancaster, United Kingdom</li>
+          </ul>
+          <h3 className="font-display text-base mt-5 mb-2 text-primary-foreground">Aligned with</h3>
+          <ul className="space-y-1 text-xs opacity-80">
             <li>UN SDG 4 — Quality Education</li>
             <li>UN SDG 8 — Decent Work & Economic Growth</li>
           </ul>
@@ -33,7 +48,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-primary-foreground/15">
         <div className="container-wide py-4 text-xs opacity-70">
-          © {new Date().getFullYear()} ReviveUK EdTech CIC. Lancaster, United Kingdom.
+          © {new Date().getFullYear()} ReviveUK EdTech CIC. Registered in England and Wales, company number 17146868.
         </div>
       </div>
     </footer>

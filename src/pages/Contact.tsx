@@ -56,9 +56,19 @@ export default function Contact() {
     <div className="container-narrow py-16">
       <span className="heraldic-rule mb-4" aria-hidden="true" />
       <h1 className="font-display text-4xl md:text-5xl mb-4">Contact</h1>
-      <p className="text-xl text-muted-foreground mb-10 max-w-3xl">
+      <p className="text-xl text-muted-foreground mb-6 max-w-3xl">
         Get in touch about partnerships, referrals, workshops, or to ask about our work.
         We aim to respond within five working days.
+      </p>
+      <p className="mb-10 text-base">
+        Prefer email? Write to us at{" "}
+        <a
+          href="mailto:hello@reviveuk.org.uk"
+          className="font-semibold text-primary underline decoration-accent decoration-2 underline-offset-4 hover:text-accent"
+        >
+          hello@reviveuk.org.uk
+        </a>
+        .
       </p>
 
       <form onSubmit={onSubmit} noValidate className="grid gap-6 max-w-2xl">

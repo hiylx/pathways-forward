@@ -18,7 +18,7 @@ export default function Programmes() {
             className="border-t-2 border-accent pt-8 scroll-mt-24"
           >
             <div className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-2">
-              Programme {String(i + 1).padStart(2, "0")}
+              Service {String(i + 1).padStart(2, "0")}
             </div>
             <h2 className="font-display text-3xl mb-3">{p.title}</h2>
             <p className="text-lg mb-6">{p.description}</p>

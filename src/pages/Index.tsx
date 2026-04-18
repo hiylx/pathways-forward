@@ -78,23 +78,23 @@ export default function Index() {
           <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
             <div className="max-w-2xl">
               <span className="heraldic-rule mb-4" aria-hidden="true" />
-              <h2 className="font-display text-3xl md:text-4xl mb-3">Our six programmes</h2>
+              <h2 className="font-display text-3xl md:text-4xl mb-3">Our six services</h2>
               <p className="text-lg text-muted-foreground">
-                Each programme reduces a specific barrier to education, work or stability.
+                Each service reduces a specific barrier to education, work or stability.
               </p>
             </div>
             <Link
               to="/programmes"
               className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary border-b-2 border-accent pb-1"
             >
-              See all programmes <ArrowRight className="h-4 w-4" />
+              See all services <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {programmes.map((p, i) => (
-              <article key={p.slug} className="bg-card border border-border p-6 flex flex-col">
+              <article key={p.slug} className="bg-card border border-border p-6 flex flex-col rounded-md">
                 <div className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-2">
-                  Programme {String(i + 1).padStart(2, "0")}
+                  Service {String(i + 1).padStart(2, "0")}
                 </div>
                 <h3 className="font-display text-xl mb-2">{p.title}</h3>
                 <p className="text-sm text-muted-foreground flex-1">{p.short}</p>

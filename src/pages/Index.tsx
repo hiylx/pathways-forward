@@ -21,15 +21,15 @@ export default function Index() {
             <div className="flex flex-wrap gap-3">
               <Link
                 to="/get-support"
-                className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 font-semibold uppercase tracking-wider text-sm rounded-sm hover:bg-accent/90"
+                className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 font-semibold uppercase tracking-wider text-sm rounded-md hover:bg-accent/90"
               >
                 Start your assessment <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/programmes"
-                className="inline-flex items-center gap-2 border-2 border-primary-foreground/40 px-6 py-3 font-semibold uppercase tracking-wider text-sm rounded-sm hover:border-accent"
+                className="inline-flex items-center gap-2 border-2 border-primary-foreground/40 px-6 py-3 font-semibold uppercase tracking-wider text-sm rounded-md hover:border-accent"
               >
-                Explore programmes
+                Explore services
               </Link>
             </div>
           </div>

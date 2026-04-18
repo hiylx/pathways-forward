@@ -87,7 +87,7 @@ export default function Contact() {
             autoComplete="email"
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? "email-error" : undefined}
-            className="px-4 py-3 border-2 border-border bg-background focus:border-accent rounded-sm"
+            className="px-4 py-3 border-2 border-border bg-background focus:border-accent rounded-md"
           />
           {errors.email && (
             <p id="email-error" className="text-sm text-destructive">{errors.email}</p>
@@ -103,7 +103,7 @@ export default function Contact() {
             name="organisation"
             type="text"
             autoComplete="organization"
-            className="px-4 py-3 border-2 border-border bg-background focus:border-accent rounded-sm"
+            className="px-4 py-3 border-2 border-border bg-background focus:border-accent rounded-md"
           />
         </div>
 
@@ -113,7 +113,7 @@ export default function Contact() {
             id="enquiryType"
             name="enquiryType"
             defaultValue="school"
-            className="px-4 py-3 border-2 border-border bg-background focus:border-accent rounded-sm"
+            className="px-4 py-3 border-2 border-border bg-background focus:border-accent rounded-md"
           >
             {enquiryTypes.map((t) => (
               <option key={t.value} value={t.value}>{t.label}</option>
@@ -129,7 +129,7 @@ export default function Contact() {
             rows={6}
             aria-invalid={!!errors.message}
             aria-describedby={errors.message ? "message-error" : undefined}
-            className="px-4 py-3 border-2 border-border bg-background focus:border-accent rounded-sm"
+            className="px-4 py-3 border-2 border-border bg-background focus:border-accent rounded-md"
           />
           {errors.message && (
             <p id="message-error" className="text-sm text-destructive">{errors.message}</p>
@@ -138,7 +138,7 @@ export default function Contact() {
 
         <button
           type="submit"
-          className="justify-self-start bg-accent text-accent-foreground px-6 py-3 font-semibold uppercase tracking-wider text-sm rounded-sm hover:bg-accent/90"
+          className="justify-self-start bg-accent text-accent-foreground px-6 py-3 font-semibold uppercase tracking-wider text-sm rounded-md hover:bg-accent/90"
         >
           Send enquiry
         </button>

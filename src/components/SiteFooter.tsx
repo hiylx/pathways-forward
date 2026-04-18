@@ -1,11 +1,21 @@
 import { Link } from "react-router-dom";
+import logo from "@/assets/logo.jpg";
 
 export function SiteFooter() {
   return (
     <footer className="bg-primary text-primary-foreground mt-16">
       <div className="container-wide py-12 grid gap-10 md:grid-cols-3">
         <div>
-          <div className="font-display text-xl mb-2 text-primary-foreground">ReviveUK EdTech CIC</div>
+          <div className="flex items-center gap-3 mb-4">
+            <img
+              src={logo}
+              alt="ReviveUK EdTech CIC logo"
+              className="h-14 w-14 object-contain bg-primary-foreground/95 rounded-md p-1.5"
+            />
+            <div className="font-display text-xl text-primary-foreground leading-tight">
+              ReviveUK EdTech CIC
+            </div>
+          </div>
           <p className="text-sm opacity-85 max-w-xs">
             Inclusive STEAM education and employability support for disadvantaged and
             underserved people in Lancaster and surrounding areas.

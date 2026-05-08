@@ -1,95 +1,100 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /*
-  ReviveUK EdTech CIC — Design System
-  Colours derived from the logo: deep navy, union-jack red, ivory cream.
-  All colours in HSL. No ad-hoc colours in components.
+  ReviveUK EdTech CIC — Premium redesign
+  St John's-inspired palette: crimson, gold, ivory, charcoal.
+  Editorial / strategic-consultancy aesthetic. All colours HSL.
 */
 
 @layer base {
   :root {
-    /* Brand */
-    --background: 36 33% 97%;          /* ivory cream page bg */
-    --foreground: 217 60% 12%;         /* deep navy text */
+    /* Surfaces */
+    --background: 36 33% 97%;          /* #F7F5F2 ivory */
+    --foreground: 0 0% 11%;            /* #1C1C1C charcoal */
 
     --card: 0 0% 100%;
-    --card-foreground: 217 60% 12%;
+    --card-foreground: 0 0% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 217 60% 12%;
+    --popover-foreground: 0 0% 11%;
 
-    --primary: 217 65% 16%;            /* deep navy */
+    /* Primary = deep crimson */
+    --primary: 0 100% 27%;             /* #8B0000 */
     --primary-foreground: 36 33% 97%;
-    --primary-glow: 215 55% 28%;
+    --primary-glow: 0 68% 42%;         /* #B22222 */
 
-    --secondary: 36 30% 92%;           /* warm parchment */
-    --secondary-foreground: 217 60% 12%;
+    --secondary: 36 30% 94%;           /* warm parchment */
+    --secondary-foreground: 0 0% 11%;
 
-    --muted: 36 25% 90%;
-    --muted-foreground: 217 20% 35%;
+    --muted: 36 18% 92%;
+    --muted-foreground: 0 0% 30%;
 
-    --accent: 355 78% 47%;             /* union-jack red */
-    --accent-foreground: 0 0% 100%;
-    --accent-soft: 355 70% 96%;
+    /* Accent = soft gold */
+    --accent: 46 65% 52%;              /* #D4AF37 */
+    --accent-foreground: 0 0% 11%;
+    --accent-soft: 46 60% 94%;
 
-    --destructive: 0 70% 45%;
+    --destructive: 0 75% 40%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 217 25% 85%;
-    --input: 217 25% 85%;
-    --ring: 217 65% 16%;
+    --border: 36 15% 86%;
+    --input: 36 15% 86%;
+    --ring: 0 100% 27%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Typography scale (controlled by accessibility toolbar) */
+    /* Premium effect tokens */
+    --gradient-hero: radial-gradient(120% 80% at 80% 10%, hsl(0 68% 38% / 0.95) 0%, hsl(0 100% 18%) 60%, hsl(0 0% 8%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(46 65% 52%) 0%, hsl(40 70% 62%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(36 33% 97%) 0%, hsl(36 25% 92%) 100%);
+    --shadow-elegant: 0 30px 60px -30px hsl(0 100% 12% / 0.35);
+    --shadow-card: 0 1px 2px hsl(0 0% 0% / 0.04), 0 12px 32px -16px hsl(0 0% 0% / 0.12);
+    --shadow-glow: 0 0 0 1px hsl(46 65% 52% / 0.4), 0 24px 48px -24px hsl(46 65% 52% / 0.45);
+
+    /* Accessibility */
     --a11y-font-scale: 1;
-    --a11y-line-height: 1.6;
+    --a11y-line-height: 1.65;
     --a11y-letter-spacing: 0;
     --a11y-word-spacing: 0;
-
-    /* Reading guide */
     --reading-guide-y: -100px;
 
-    /* Sidebar (kept for shadcn compatibility) */
+    /* Sidebar */
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 217 60% 12%;
-    --sidebar-primary: 217 65% 16%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 36 30% 92%;
-    --sidebar-accent-foreground: 217 60% 12%;
-    --sidebar-border: 217 25% 85%;
-    --sidebar-ring: 355 78% 47%;
+    --sidebar-foreground: 0 0% 11%;
+    --sidebar-primary: 0 100% 27%;
+    --sidebar-primary-foreground: 36 33% 97%;
+    --sidebar-accent: 36 30% 94%;
+    --sidebar-accent-foreground: 0 0% 11%;
+    --sidebar-border: 36 15% 86%;
+    --sidebar-ring: 46 65% 52%;
   }
 
-  /* High contrast mode (toolbar) */
   html[data-a11y-contrast="high"] {
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 0%;
-    --primary: 0 0% 0%;
+    --primary: 0 100% 22%;
     --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 95%;
     --secondary-foreground: 0 0% 0%;
     --muted: 0 0% 92%;
     --muted-foreground: 0 0% 10%;
-    --accent: 355 100% 35%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 46 100% 35%;
+    --accent-foreground: 0 0% 0%;
     --border: 0 0% 0%;
     --input: 0 0% 0%;
     --ring: 0 0% 0%;
   }
 
-  /* Colour overlays (toolbar) */
   html[data-a11y-overlay="yellow"] { --background: 50 90% 88%; }
   html[data-a11y-overlay="blue"]   { --background: 205 70% 90%; }
   html[data-a11y-overlay="pink"]   { --background: 340 70% 92%; }
 
-  /* Reduce motion (toolbar) */
   html[data-a11y-motion="reduced"] *,
   html[data-a11y-motion="reduced"] *::before,
   html[data-a11y-motion="reduced"] *::after {
@@ -98,7 +103,6 @@
     scroll-behavior: auto !important;
   }
 
-  /* Dyslexia-friendly font (toolbar) */
   html[data-a11y-font="dyslexia"] {
     --a11y-line-height: 2.1;
     --a11y-letter-spacing: 0.06em;
@@ -106,80 +110,152 @@
   }
   html[data-a11y-font="dyslexia"] body,
   html[data-a11y-font="dyslexia"] body * {
-    font-family: 'Atkinson Hyperlegible', 'Trebuchet MS', 'Comic Sans MS', sans-serif !important;
+    font-family: 'Atkinson Hyperlegible', 'Trebuchet MS', sans-serif !important;
   }
 
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
 
   html {
     font-size: calc(16px * var(--a11y-font-scale));
+    scroll-behavior: smooth;
   }
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     line-height: var(--a11y-line-height);
     letter-spacing: var(--a11y-letter-spacing);
     word-spacing: var(--a11y-word-spacing);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4 {
-    font-family: 'Cinzel', 'Source Sans 3', serif;
-    @apply tracking-tight text-primary;
-    letter-spacing: 0.01em;
+    font-family: 'Fraunces', 'Inter', serif;
+    @apply tracking-tight text-foreground;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    line-height: 1.05;
   }
 
-  /* Focus styles — visible, high contrast, generous */
   :focus-visible {
     outline: 3px solid hsl(var(--accent));
     outline-offset: 3px;
-    border-radius: 2px;
+    border-radius: 4px;
   }
 
-  /* Reading guide bar */
   .reading-guide-bar {
-    position: fixed;
-    left: 0;
-    right: 0;
+    position: fixed; left: 0; right: 0;
     top: var(--reading-guide-y);
     height: 38px;
     background: hsl(var(--primary) / 0.18);
     border-top: 2px solid hsl(var(--accent));
     border-bottom: 2px solid hsl(var(--accent));
-    pointer-events: none;
-    z-index: 40;
+    pointer-events: none; z-index: 40;
     transform: translateY(-50%);
   }
 
-  /* Skip link */
   .skip-link {
-    position: absolute;
-    left: -9999px;
-    top: 0;
+    position: absolute; left: -9999px; top: 0;
     background: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
-    padding: 0.75rem 1rem;
-    z-index: 100;
+    padding: 0.75rem 1rem; z-index: 100;
   }
-  .skip-link:focus {
-    left: 0;
-  }
+  .skip-link:focus { left: 0; }
 }
 
 @layer components {
+  .container-narrow { @apply mx-auto px-5 sm:px-6 lg:px-8 max-w-5xl; }
+  .container-wide   { @apply mx-auto px-5 sm:px-6 lg:px-8 max-w-7xl; }
+
   .heraldic-rule {
-    height: 4px;
-    width: 64px;
-    background: hsl(var(--accent));
-    display: inline-block;
+    height: 2px; width: 56px;
+    background: var(--gradient-gold);
+    display: inline-block; border-radius: 2px;
   }
-  .container-narrow {
-    @apply mx-auto px-5 sm:px-6 lg:px-8 max-w-5xl;
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary;
   }
-  .container-wide {
-    @apply mx-auto px-5 sm:px-6 lg:px-8 max-w-6xl;
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-semibold tracking-wide;
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+    box-shadow: var(--shadow-elegant);
+  }
+  .btn-primary:hover { transform: translateY(-2px); background: hsl(var(--primary-glow)); }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-full border border-foreground/15 px-6 py-3 text-sm font-semibold tracking-wide bg-transparent text-foreground;
+    transition: all .25s ease;
+  }
+  .btn-ghost:hover { border-color: hsl(var(--accent)); color: hsl(var(--primary)); }
+
+  .btn-gold {
+    @apply inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wide;
+    background: var(--gradient-gold);
+    color: hsl(var(--accent-foreground));
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+
+  .card-elevated {
+    @apply bg-card rounded-2xl border border-border/60 p-6;
+    box-shadow: var(--shadow-card);
+    transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease;
+  }
+  .card-elevated:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elegant);
+    border-color: hsl(var(--accent) / 0.5);
+  }
+
+  .glass {
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid hsl(var(--border) / 0.6);
+  }
+
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .grain::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: radial-gradient(hsl(0 0% 100% / 0.06) 1px, transparent 1px);
+    background-size: 3px 3px; opacity: .35; mix-blend-mode: overlay;
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    animation: reveal-in .9s cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  .reveal-delay-1 { animation-delay: .08s; }
+  .reveal-delay-2 { animation-delay: .16s; }
+  .reveal-delay-3 { animation-delay: .24s; }
+  .reveal-delay-4 { animation-delay: .32s; }
+
+  @keyframes reveal-in {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-18px) rotate(2deg); }
+  }
+  .float-slow { animation: float-slow 9s ease-in-out infinite; }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .shimmer {
+    background: linear-gradient(90deg, transparent, hsl(46 65% 52% / 0.25), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
   }
 }

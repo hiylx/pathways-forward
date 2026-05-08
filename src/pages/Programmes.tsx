@@ -1,41 +1,76 @@
+import { Link } from "react-router-dom";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { programmes } from "@/data/programmes";
 
 export default function Programmes() {
   return (
-    <div className="container-narrow py-16">
-      <span className="heraldic-rule mb-4" aria-hidden="true" />
-      <h1 className="font-display text-4xl md:text-5xl mb-4">Programmes</h1>
-      <p className="text-xl text-muted-foreground mb-12 max-w-3xl">
-        Seven programmes that work together to remove barriers and open pathways into
-        education, skilled employment, training and self-employment.
-      </p>
+    <>
+      <section className="relative overflow-hidden">
+        <div aria-hidden="true" className="absolute inset-0 -z-10" style={{ background: "var(--gradient-soft)" }} />
+        <div className="container-wide pt-20 pb-12">
+          <div className="eyebrow mb-5"><span className="h-px w-8 bg-primary" />Our programmes</div>
+          <h1 className="font-display text-5xl md:text-6xl max-w-4xl mb-6">
+            Seven programmes that <span className="text-gradient-gold">remove barriers</span> and open pathways.
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-3xl">
+            Each can stand alone or work together — guided by Waymark, our Maslow-framed
+            assessment, to meet people where they are.
+          </p>
+        </div>
+      </section>
 
-      <div className="space-y-12">
-        {programmes.map((p, i) => (
-          <article
-            key={p.slug}
-            id={p.slug}
-            className="border-t-2 border-accent pt-8 scroll-mt-24"
-          >
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-2">
-              {p.name}
-            </div>
-            <h2 className="font-display text-3xl mb-3">{p.title}</h2>
-            <p className="text-lg mb-6">{p.description}</p>
+      <section className="pb-12">
+        <div className="container-wide">
+          <nav aria-label="Programme jump links" className="flex flex-wrap gap-2 mb-12">
+            {programmes.map((p) => (
+              <a
+                key={p.slug}
+                href={`#${p.slug}`}
+                className="text-xs font-semibold uppercase tracking-[0.18em] px-3 py-2 rounded-full border border-border hover:border-primary hover:text-primary transition"
+              >
+                {p.name}
+              </a>
+            ))}
+          </nav>
 
-            <div className="grid gap-6 md:grid-cols-2">
-              <div className="bg-secondary p-5 border-l-4 border-primary rounded-md">
-                <h3 className="font-display text-base mb-2">Who it's for</h3>
-                <p className="text-sm">{p.eligibility}</p>
-              </div>
-              <div className="bg-secondary p-5 border-l-4 border-primary rounded-md">
-                <h3 className="font-display text-base mb-2">How to access</h3>
-                <p className="text-sm">{p.access}</p>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
+          <div className="space-y-6">
+            {programmes.map((p, i) => (
+              <article
+                key={p.slug}
+                id={p.slug}
+                className="card-elevated scroll-mt-24 grid gap-8 md:grid-cols-12"
+              >
+                <div className="md:col-span-4">
+                  <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary mb-2">
+                    0{i + 1} · {p.name}
+                  </div>
+                  <h2 className="font-display text-3xl">{p.title}</h2>
+                </div>
+                <div className="md:col-span-8">
+                  <p className="text-lg mb-6">{p.description}</p>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="rounded-xl bg-secondary p-4">
+                      <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-1">Who it's for</h3>
+                      <p className="text-sm">{p.eligibility}</p>
+                    </div>
+                    <div className="rounded-xl bg-accent-soft p-4">
+                      <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-primary mb-1">How to access</h3>
+                      <p className="text-sm">{p.access}</p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="container-wide text-center">
+          <h2 className="font-display text-3xl md:text-4xl mb-5">Find the right pathway for you.</h2>
+          <Link to="/get-support" className="btn-primary">Start your assessment <ArrowRight className="h-4 w-4" /></Link>
+        </div>
+      </section>
+    </>
   );
 }

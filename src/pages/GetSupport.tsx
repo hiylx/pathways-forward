@@ -11,62 +11,78 @@ const tiers = [
 
 export default function GetSupport() {
   return (
-    <div className="container-narrow py-16">
-      <span className="heraldic-rule mb-4" aria-hidden="true" />
-      <h1 className="font-display text-4xl md:text-5xl mb-4">Get Support</h1>
-      <p className="text-xl text-muted-foreground mb-10 max-w-3xl">
-        A short, private assessment helps us understand your situation and create a
-        personalised action plan — with practical referrals where they help.
-      </p>
-
-      <section className="bg-secondary p-6 md:p-8 mb-12 border-l-4 border-accent rounded-md">
-        <h2 className="font-display text-2xl mb-3">How the assessment works</h2>
-        <ol className="list-decimal pl-6 space-y-2">
-          <li>Answer questions across five life areas, based on Maslow's hierarchy of needs.</li>
-          <li>We check that the foundations — like food, healthcare and housing — are in place.</li>
-          <li>You receive a personalised action plan with next steps and referral signposting.</li>
-          <li>You can save your progress at any point and return when you're ready.</li>
-        </ol>
-        <p className="text-sm text-muted-foreground mt-4">
-          Your information is kept private. Where safeguarding concerns arise, we follow
-          our published procedures.
-        </p>
+    <>
+      <section className="relative overflow-hidden">
+        <div aria-hidden="true" className="absolute inset-0 -z-10" style={{ background: "var(--gradient-soft)" }} />
+        <div className="container-narrow pt-20 pb-12">
+          <div className="eyebrow mb-5"><span className="h-px w-8 bg-primary" />Get support</div>
+          <h1 className="font-display text-5xl md:text-6xl mb-6 max-w-3xl">
+            A <span className="text-gradient-gold">private, structured</span> conversation about what comes next.
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-3xl">
+            A short, Maslow-framed assessment helps us understand your situation and
+            create a personalised action plan with practical referrals.
+          </p>
+        </div>
       </section>
 
-      <h2 className="font-display text-2xl mb-6">The five areas we explore</h2>
-      <ol className="space-y-3 mb-12">
-        {tiers.map((t, i) => (
-          <li key={t.name} className="flex gap-4 bg-card border border-border p-5 rounded-md">
-            <div className="flex-shrink-0 w-10 h-10 bg-primary text-primary-foreground rounded-md flex items-center justify-center font-display">
-              {i + 1}
-            </div>
-            <div className="flex-1">
-              <div className="flex items-center gap-2 mb-1">
-                <t.icon className="h-5 w-5 text-accent" aria-hidden="true" />
-                <h3 className="font-display text-lg">{t.name}</h3>
-              </div>
-              <p className="text-sm text-muted-foreground">{t.body}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
+      <section className="pb-16">
+        <div className="container-narrow">
+          <div className="card-elevated mb-12">
+            <h2 className="font-display text-2xl mb-3">How the assessment works</h2>
+            <ol className="grid gap-3 sm:grid-cols-2">
+              {[
+                "Answer questions across five life areas, based on Maslow's hierarchy of needs.",
+                "We check that the foundations — food, healthcare, housing — are in place.",
+                "You receive a personalised action plan with next steps and signposting.",
+                "Save your progress at any point and return when you're ready.",
+              ].map((step, i) => (
+                <li key={step} className="flex gap-3 text-sm">
+                  <span className="h-7 w-7 shrink-0 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-semibold">
+                    {i + 1}
+                  </span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+            <p className="text-xs text-muted-foreground mt-5 pt-5 border-t border-border/60">
+              Your information is kept private. Where safeguarding concerns arise, we follow our published procedures.
+            </p>
+          </div>
 
-      {/* Skeleton CTA — assessment flow to be implemented in next phase */}
-      <div className="bg-primary text-primary-foreground p-8 md:p-10 text-center rounded-md">
-        <h2 className="font-display text-2xl text-primary-foreground mb-3">
-          Assessment coming soon
-        </h2>
-        <p className="opacity-90 max-w-xl mx-auto mb-6">
-          The full assessment flow with progress saving, action plan and referrals will be
-          available shortly. In the meantime, you can reach us directly.
-        </p>
-        <Link
-          to="/contact"
-          className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 font-semibold uppercase tracking-wider text-sm rounded-md hover:bg-accent/90"
-        >
-          Contact us instead <ArrowRight className="h-4 w-4" />
-        </Link>
-      </div>
-    </div>
+          <h2 className="font-display text-3xl mb-6">The five areas we explore</h2>
+          <ol className="grid gap-4 md:grid-cols-2">
+            {tiers.map((t, i) => (
+              <li key={t.name} className="card-elevated flex gap-4">
+                <div className="h-12 w-12 shrink-0 rounded-xl bg-accent-soft text-primary flex items-center justify-center font-display text-lg">
+                  {i + 1}
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <t.icon className="h-4 w-4 text-primary" aria-hidden="true" />
+                    <h3 className="font-display text-lg">{t.name}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{t.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <div className="relative mt-14 rounded-3xl overflow-hidden bg-foreground text-background grain">
+            <div aria-hidden="true" className="absolute inset-0 opacity-95" style={{ background: "var(--gradient-hero)" }} />
+            <div className="relative px-8 py-12 md:p-14 text-center">
+              <h2 className="font-display text-3xl md:text-4xl text-background mb-4">Assessment coming soon</h2>
+              <p className="text-background/80 max-w-xl mx-auto mb-7">
+                The full assessment with progress saving, action plan and referrals is in
+                development. In the meantime, please reach us directly.
+              </p>
+              <Link to="/contact" className="btn-gold">
+                Contact us instead <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

@@ -1,13 +1,11 @@
-import lbcLogo from "@/assets/partners/lancaster-baptist.svg";
-
 export interface Partner {
   name: string;
   shortName: string;
   url: string;
   description: string;
-  logo?: string;
 }
 
+// Typography-only partner cards (no logos by design).
 export const partners: Partner[] = [
   {
     name: "Lancaster District CVS",
@@ -17,15 +15,20 @@ export const partners: Partner[] = [
   },
   {
     name: "Lancaster Baptist Church",
-    shortName: "Lancaster Baptist",
+    shortName: "LBC",
     url: "https://lancasterbaptist.org",
-    description: "A community partner supporting wellbeing and outreach in Lancaster.",
-    logo: lbcLogo,
+    description: "Community partner supporting wellbeing and outreach in Lancaster.",
   },
   {
-    name: "AIDUS",
-    shortName: "AIDUS",
-    url: "https://www.aidus.co.uk",
-    description: "Strategic ecosystem partner supporting innovation and inclusion.",
+    name: "AIDAUS",
+    shortName: "AIDAUS",
+    url: "https://www.aidaus.co.uk",
+    description: "Strategic ecosystem partner advancing innovation and inclusion.",
+  },
+  {
+    name: "Krystal Hosting",
+    shortName: "Krystal",
+    url: "https://krystal.uk",
+    description: "Sustainable, UK-based green hosting infrastructure.",
   },
 ];

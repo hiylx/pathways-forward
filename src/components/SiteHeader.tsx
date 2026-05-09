@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.jpg";
 
 const links = [
   { to: "/", label: "Home", end: true },
@@ -25,7 +24,7 @@ export function SiteHeader() {
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     `relative px-3 py-2 text-sm font-medium transition-colors ${
       isActive ? "text-primary" : "text-foreground/70 hover:text-foreground"
-    } after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-px after:bg-primary after:transition-transform after:origin-left ${
+    } after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-px after:bg-[hsl(var(--crimson))] after:transition-transform after:origin-left ${
       isActive ? "after:scale-x-100" : "after:scale-x-0 hover:after:scale-x-100"
     }`;
 
@@ -39,17 +38,12 @@ export function SiteHeader() {
     >
       <div className="container-wide flex items-center justify-between gap-4 py-4">
         <NavLink to="/" className="flex items-center gap-3 shrink-0 group">
-          <img
-            src={logo}
-            alt="ReviveUK EdTech CIC logo"
-            className="h-10 w-10 object-contain bg-primary rounded-xl p-1.5 transition-transform group-hover:scale-105"
-          />
-          <div className="leading-tight hidden sm:block">
-            <div className="font-display text-base font-semibold">
-              Revive<span className="text-primary">UK</span>
+          <div className="leading-tight">
+            <div className="font-display text-lg sm:text-xl font-semibold tracking-tight">
+              Revive<span className="text-[hsl(var(--crimson))]">UK</span>
             </div>
-            <div className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-              EdTech CIC
+            <div className="text-[9px] uppercase tracking-[0.32em] text-muted-foreground -mt-0.5">
+              EdTech · Est. 2026
             </div>
           </div>
         </NavLink>

@@ -22,18 +22,22 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 11%;
 
-    /* Primary = deep crimson */
-    --primary: 0 100% 27%;             /* #8B0000 */
+    /* Primary = royal navy from logo */
+    --primary: 217 80% 13%;            /* #071D3B */
     --primary-foreground: 36 33% 97%;
-    --primary-glow: 0 68% 42%;         /* #B22222 */
+    --primary-glow: 217 70% 22%;
 
-    --secondary: 36 30% 94%;           /* warm parchment */
+    /* Crimson = ReviveUK red */
+    --crimson: 353 80% 38%;            /* #B11226 */
+    --crimson-foreground: 0 0% 100%;
+
+    --secondary: 36 30% 94%;
     --secondary-foreground: 0 0% 11%;
 
     --muted: 36 18% 92%;
     --muted-foreground: 0 0% 30%;
 
-    /* Accent = soft gold */
+    /* Accent = gold */
     --accent: 46 65% 52%;              /* #D4AF37 */
     --accent-foreground: 0 0% 11%;
     --accent-soft: 46 60% 94%;
@@ -48,10 +52,11 @@
     --radius: 1rem;
 
     /* Premium effect tokens */
-    --gradient-hero: radial-gradient(120% 80% at 80% 10%, hsl(0 68% 38% / 0.95) 0%, hsl(0 100% 18%) 60%, hsl(0 0% 8%) 100%);
+    --gradient-hero: radial-gradient(120% 80% at 80% 10%, hsl(217 70% 22% / 0.95) 0%, hsl(217 85% 10%) 55%, hsl(0 0% 6%) 100%);
+    --gradient-crimson: linear-gradient(135deg, hsl(353 80% 38%) 0%, hsl(0 70% 30%) 100%);
     --gradient-gold: linear-gradient(135deg, hsl(46 65% 52%) 0%, hsl(40 70% 62%) 100%);
     --gradient-soft: linear-gradient(180deg, hsl(36 33% 97%) 0%, hsl(36 25% 92%) 100%);
-    --shadow-elegant: 0 30px 60px -30px hsl(0 100% 12% / 0.35);
+    --shadow-elegant: 0 30px 60px -30px hsl(217 80% 12% / 0.45);
     --shadow-card: 0 1px 2px hsl(0 0% 0% / 0.04), 0 12px 32px -16px hsl(0 0% 0% / 0.12);
     --shadow-glow: 0 0 0 1px hsl(46 65% 52% / 0.4), 0 24px 48px -24px hsl(46 65% 52% / 0.45);
 

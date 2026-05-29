@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/reviveuk-logo.png";
 
 const links = [
   { to: "/", label: "Home", end: true },
@@ -37,9 +38,16 @@ export function SiteHeader() {
       }`}
     >
       <div className="container-wide flex items-center justify-between gap-4 py-4">
-        <NavLink to="/" className="flex items-center gap-3 shrink-0 group">
-          <div className="leading-tight">
-            <div className="font-display text-lg sm:text-xl font-semibold tracking-tight">
+        <NavLink to="/" className="flex items-center gap-3 shrink-0 group" aria-label="ReviveUK EdTech home">
+          <img
+            src={logo}
+            alt="ReviveUK EdTech"
+            className="h-14 sm:h-16 w-auto object-contain"
+            loading="eager"
+            decoding="async"
+          />
+          <div className="leading-tight hidden sm:block">
+            <div className="font-display text-lg font-semibold tracking-tight">
               Revive<span className="text-[hsl(var(--crimson))]">UK</span>
             </div>
             <div className="text-[9px] uppercase tracking-[0.32em] text-muted-foreground -mt-0.5">

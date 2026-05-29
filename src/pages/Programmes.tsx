@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { programmes } from "@/data/programmes";
-import { ProgrammeShield } from "@/components/ProgrammeShield";
 
 export default function Programmes() {
   return (
@@ -42,7 +41,6 @@ export default function Programmes() {
                 className="card-elevated scroll-mt-24 grid gap-8 md:grid-cols-12 items-start"
               >
                 <div className="md:col-span-4 flex flex-col items-start gap-4">
-                  <ProgrammeShield slug={p.slug} size={120} />
                   <div>
                     <div className="text-xs font-semibold uppercase tracking-[0.22em] text-[hsl(var(--crimson))] mb-2">
                       0{i + 1} · {p.name}

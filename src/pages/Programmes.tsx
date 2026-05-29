@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { programmes } from "@/data/programmes";
-import { ProgrammeShield } from "@/components/ProgrammeShield";
 
 export default function Programmes() {
   return (

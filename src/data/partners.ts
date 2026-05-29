@@ -16,7 +16,7 @@ export const partners: Partner[] = [
   {
     name: "Lancaster Baptist Church",
     shortName: "LBC",
-    url: "https://lancasterbaptist.org",
+    url: "https://www.lancasterbaptistchurch.org.uk/",
     description: "Community partner supporting wellbeing and outreach in Lancaster.",
   },
   {

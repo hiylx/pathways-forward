@@ -237,8 +237,7 @@ export default function Index() {
                 className="card-elevated group flex flex-col items-center text-center relative overflow-hidden"
               >
                 <div aria-hidden="true" className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full opacity-0 group-hover:opacity-30 blur-3xl transition-opacity" style={{ background: "hsl(var(--accent))" }} />
-                <ProgrammeShield slug={p.slug} size={88} className="mb-4 transition-transform group-hover:-translate-y-1" />
-                <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[hsl(var(--crimson))] mb-1">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[hsl(var(--crimson))] mb-1 mt-4">
                   {p.name}
                 </div>
                 <h3 className="font-display text-lg mb-2">{p.title}</h3>

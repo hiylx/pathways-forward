@@ -10,7 +10,7 @@ export const partners: Partner[] = [
   {
     name: "Lancaster District CVS",
     shortName: "LDCVS",
-    url: "https://www.ldcvs.org.uk",
+    url: "https://lancastercvs.org.uk/",
     description: "Voluntary, community and social enterprise infrastructure for Lancaster.",
   },
   {

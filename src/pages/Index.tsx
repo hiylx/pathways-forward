@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import { programmes } from "@/data/programmes";
 import { partners } from "@/data/partners";
-import { ProgrammeShield } from "@/components/ProgrammeShield";
 
 const stats = [
   { value: 7, suffix: "", label: "Strategic programmes" },

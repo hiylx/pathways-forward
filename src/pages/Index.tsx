@@ -162,9 +162,8 @@ export default function Index() {
 
                 <div className="grid grid-cols-3 gap-3">
                   {programmes.slice(0, 6).map((p) => (
-                    <Link key={p.slug} to={`/programmes#${p.slug}`} className="group flex flex-col items-center text-center">
-                      <ProgrammeShield slug={p.slug} size={64} className="transition-transform group-hover:-translate-y-1" />
-                      <span className="mt-2 text-[10px] uppercase tracking-[0.16em] text-background/80 group-hover:text-accent">
+                    <Link key={p.slug} to={`/programmes#${p.slug}`} className="group flex flex-col items-center text-center p-3 rounded-xl bg-background/10 hover:bg-background/20 transition">
+                      <span className="text-[10px] uppercase tracking-[0.16em] text-background/80 group-hover:text-accent">
                         {p.name}
                       </span>
                     </Link>
